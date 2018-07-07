@@ -3,7 +3,9 @@ package auto_typing;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class AutoTypeCharacter {
@@ -11,16 +13,21 @@ public class AutoTypeCharacter {
 	private static int key=-1;
 
 	public static void main(String[] args) throws AWTException, IOException {
-		// TODO Auto-generated method stub
 		
-		String str="Hello world....,,,,,YUGhjb@#$^&^*&*&(**(jhbsYGHjdcb';[[;'/652hjc  you bitch, get off my way";
+		File file =new File("C:\\Users\\user\\Desktop\\abc.txt");
+	    Scanner sc = new Scanner(file);
+		String str="";
+		
+		while (sc.hasNextLine()){
+	    	str+=sc.nextLine();
+	    }
 		
 		char ch[]=str.toCharArray();
 		
 		Robot rb=new Robot();
 		Runtime rt=Runtime.getRuntime(); //opens notepad
 		rt.exec("notepad.exe");
-		rb.delay(1000);
+		rb.delay(10);
 		
 		for(int i=0;i<ch.length;i++){
 			
@@ -257,7 +264,7 @@ public class AutoTypeCharacter {
 				
 			case ':':
 				rb.keyPress(KeyEvent.VK_SHIFT);
-				key=KeyEvent.VK_COLON;
+				key=KeyEvent.VK_SEMICOLON;
 				break;	
 				
 			case '*':
